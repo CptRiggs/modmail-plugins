@@ -64,7 +64,7 @@ class Leveling(Cog):
             if person["level"] < level:
                 await message.channel.send(
                     f"Congratulations, {message.author.mention}, "
-                    f"you advanced to level {level}!. "
+                    f"you advanced to level {level}! "
                     "Run `+lb` to see the server leaderboard."
                 )
 
