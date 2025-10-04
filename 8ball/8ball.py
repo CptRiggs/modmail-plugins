@@ -4,7 +4,7 @@ import random
 
 anslist = ["I am certain of it.","Without a doubt.","You can count on it!","It is decidedly so.","Signs are pointing to yes.","Better not tell you now","Reply hazy, please try again.","Concentrate and ask again.","Don't count on it.","Outlook not so good.","My sources say no."]
 
-class 8ball(commands.Cog):
+class eightball(commands.Cog):
     """
     Ask me a yes/no question and get an instant answer!
     """
@@ -12,7 +12,7 @@ class 8ball(commands.Cog):
         self.bot = bot
 
     @commands.command(aliases = ['8bl', 'eightball'])
-    async def 8ball(self, ctx, *, question):
+    async def eightball(self, ctx, *, question):
         """
         Ask me a yes/no question and get an instant answer!
         Usage: [prefix]8ball <question>
@@ -23,4 +23,4 @@ class 8ball(commands.Cog):
         await ctx.send(embed=embed)
 
 async def setup(bot):
-    await bot.add_cog(8ball(bot))
+    await bot.add_cog(eightball(bot))
