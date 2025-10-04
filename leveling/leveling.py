@@ -36,8 +36,14 @@ class Leveling(Cog):
         except (KeyError, TypeError):
             return
 
-        if self.last_msg.get(message.author.id, 0) > 3: return
-        self.last_msg[message.author.id] = self.last_msg.get(message.author.id, 0) + 1
+        if message.channel.id not in self.last_msg: self.last_msg[message.channel.id] = {}
+        last_channel = self.last_msg[message.channel.id]
+
+        if message.author.id not in last_channel: last_channel.clear()
+        last_channel[message.author.id] = last_channel.get(message.author.id, 0) + 1
+
+        if last_channel[message.author.id] > 3: return
+
         person = await self.db.find_one({"id": message.author.id})
 
         if person is None:
