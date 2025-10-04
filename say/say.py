@@ -10,5 +10,5 @@ class Say(commands.Cog):
         """Say plugin that doesn't delete the original message!"""
         await ctx.send(message.replace("@everyone", "@\u200beveryone").replace("@here", "@\u200bhere"))
 
-def setup(bot):
-    bot.add_cog(Say(bot))
+async def setup(bot):
+    await bot.add_cog(Say(bot))
