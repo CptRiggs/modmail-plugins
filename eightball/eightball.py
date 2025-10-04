@@ -11,7 +11,7 @@ class eightball(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(aliases = ['8ball', 'eightball'])
+    @commands.command(aliases = ['8ball'])
     async def eightball(self, ctx, *, question):
         """
         Ask me a yes/no question and get an instant answer!
