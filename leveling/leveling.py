@@ -21,13 +21,13 @@ class Leveling(Cog):
 
     def __init__(self, bot: Bot) -> None:
         self.bot = bot
+        self.last_msg = {}
+        self.ignore = [1423681388040687686, 1423681606698406001, 1423681702659883068, 1423738916179017738, 1423739265426260060]
         self.db: AsyncIOMotorCollection = bot.plugin_db.get_partition(self)
 
     @Cog.listener()
     async def on_message(self, message: Message) -> None:
-        if message.author.bot:
-            return
-        if message.channel.id == 583379256441045012 or message.channel.id == 671069603048325131 or message.channel.id == 804741038040285224:
+        if message.author.bot or message.channel.id in self.ignore:
             return
         if isinstance(message.channel, discord.channel.DMChannel):
             return
@@ -36,6 +36,7 @@ class Leveling(Cog):
         except (KeyError, TypeError):
             return
 
+        self.last_msg[message.author.id] = self.last_msg.get(message.author.id, 0) + 1
         person = await self.db.find_one({"id": message.author.id})
 
         if person is None:
@@ -256,6 +257,6 @@ class Leveling(Cog):
         await ctx.send(embed=embed)
 
 
-def setup(bot: Bot) -> None:
+async def setup(bot: Bot) -> None:
     """Bot cog load."""
-    bot.add_cog(Leveling(bot))
+    await bot.add_cog(Leveling(bot))
