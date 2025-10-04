@@ -125,5 +125,5 @@ class profanitydoneright(commands.Cog):
                                 return
                     os.remove(img)
 
-def setup(bot):
-    bot.add_cog(profanitydoneright(bot))
+async def setup(bot):
+    await bot.add_cog(profanitydoneright(bot))

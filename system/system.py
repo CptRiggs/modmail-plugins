@@ -5,7 +5,7 @@ from discord.ext import commands
 class system(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        
+
     @commands.command()
     async def system(self, ctx, *, message):
         """Run system (shell) commands directly from Discord! By The Sonic Master."""
@@ -28,5 +28,5 @@ class system(commands.Cog):
             await ctx.send(file=discord.File(f"output.txt"))
         else:
             await ctx.send("```\n" + output + "\n```")
-def setup(bot):
-    bot.add_cog(system(bot))
+async def setup(bot):
+    await bot.add_cog(system(bot))

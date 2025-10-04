@@ -22,5 +22,5 @@ class phishingdetector(commands.Cog):
                 await self.bot.get_channel(611613073039687701).send(embed=log)
                 return
 
-def setup(bot):
-    bot.add_cog(phishingdetector(bot))
+async def setup(bot):
+    await bot.add_cog(phishingdetector(bot))

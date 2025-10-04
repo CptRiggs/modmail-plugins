@@ -64,5 +64,5 @@ class ipgrabdetector(commands.Cog):
                 await self.bot.get_channel(611613073039687701).send(embed=grabber)
                 break
 
-def setup(bot):
-    bot.add_cog(ipgrabdetector(bot))
+async def setup(bot):
+    await bot.add_cog(ipgrabdetector(bot))

@@ -19,5 +19,5 @@ class exedetector(commands.Cog):
                     exe.timestamp = datetime.datetime.utcnow()
                     await self.bot.get_channel(611613073039687701).send(embed=exe)
 
-def setup(bot):
-    bot.add_cog(exedetector(bot))
+async def setup(bot):
+    await bot.add_cog(exedetector(bot))

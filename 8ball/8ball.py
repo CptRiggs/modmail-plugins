@@ -22,5 +22,5 @@ class 8ball(commands.Cog):
         embed.add_field(name="Answer:", value=random.choice(anslist), inline=False)
         await ctx.send(embed=embed)
 
-def setup(bot):
-    bot.add_cog(8ball(bot))
+async def setup(bot):
+    await bot.add_cog(8ball(bot))
