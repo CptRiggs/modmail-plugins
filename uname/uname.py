@@ -7,9 +7,9 @@ class Say(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def uname(self, ctx, *, message):
+    async def uname(self, ctx):
         """A buggy implimentation of uname from GNU Coreutils."""
-        command = "uname " + message + " 2>&1"
+        command = "uname -a 2>&1"
         stream = os.popen(command)
         output = stream.read()
         await ctx.send(output)
