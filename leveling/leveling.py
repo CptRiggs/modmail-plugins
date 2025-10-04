@@ -36,6 +36,7 @@ class Leveling(Cog):
         except (KeyError, TypeError):
             return
 
+        if self.last_msg.get(message.author.id, 0) > 3: return
         self.last_msg[message.author.id] = self.last_msg.get(message.author.id, 0) + 1
         person = await self.db.find_one({"id": message.author.id})
 
