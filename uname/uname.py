@@ -2,7 +2,7 @@ import discord
 import os
 from discord.ext import commands
 
-class Say(commands.Cog):
+class Uname(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -15,4 +15,4 @@ class Say(commands.Cog):
         await ctx.send(output)
 
 async def setup(bot):
-    await bot.add_cog(Say(bot))
+    await bot.add_cog(Uname(bot))
