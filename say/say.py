@@ -8,7 +8,7 @@ class Say(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message_delete(self, message):
-        if message in self.message_map:
+        if message.id in self.message_map:
             await self.message_map[message.id].delete()
 
 
