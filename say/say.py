@@ -11,6 +11,7 @@ class Say(commands.Cog):
         if before.id in self.message_map:
             content = after.content.split()
             message = self.message_map[before.id]
+            print(f"{self.bot.command_prefix}say")
             if f"{self.bot.command_prefix}say" in after.content:
                 await message.edit(content=' '.join(content[1:]))
             else:
