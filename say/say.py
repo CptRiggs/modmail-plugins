@@ -9,7 +9,12 @@ class Say(commands.Cog):
     @commands.Cog.listener()
     async def on_message_edit(self, before, after):
         if before.id in self.message_map:
-            await self.message_map[before.id].edit(content=after.content)
+            content = after.content.split()
+            message = self.message_map[before.id]
+            if f"{self.bot.command_prefix}say" in content:
+                await message.edit(content=' '.join(content[1:]))
+            else:
+                await message.delete()
 
     @commands.Cog.listener()
     async def on_message_delete(self, message):
