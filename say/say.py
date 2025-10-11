@@ -9,7 +9,7 @@ class Say(commands.Cog):
     @commands.Cog.listener()
     async def on_message_edit(self, before, after):
         if before.id in self.message_map:
-            await self.message_map[message.id].edit(content=after.content)
+            await self.message_map[before.id].edit(content=after.content)
 
     @commands.Cog.listener()
     async def on_message_delete(self, message):
